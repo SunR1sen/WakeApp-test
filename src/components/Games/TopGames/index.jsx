@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import * as axios from 'axios';
 import GameItem from "../GameItem";
 
-const TopGames = () => {
+const TopGames = ({searchValue}) => {
     const [games, setGames] = useState([])
 
     useEffect(() => {
@@ -18,7 +18,8 @@ const TopGames = () => {
 
     return (
         <>
-            {games.map((item, index) => <GameItem key={index} data={item}/>)}
+            {games.filter(item => item.application_name.toLowerCase().includes(searchValue)).map((item, index) =>
+                <GameItem key={index} data={item}/>)}
         </>
     )
 }

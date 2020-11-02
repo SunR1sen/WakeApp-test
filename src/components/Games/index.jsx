@@ -1,39 +1,44 @@
 import React from 'react';
 import s from './Games.module.scss';
 import AllGames from "./AllGames";
-import {Switch, Route, Redirect} from "react-router-dom";
+import {Switch, Route} from "react-router-dom";
 import TopGames from "./TopGames";
 import LiveCasinoGames from "./LiveCasinoGames";
 import SlotsGames from "./SlotsGames";
 import RouletteGames from "./RouletteGames";
+import TableGames from "./TableGames";
+import CardGames from "./CardGames";
 
-const Games = () => {
+const Games = ({searchValue}) => {
+
+
+
     return (
         <section className={s.wrapper}>
             <Switch>
                 <Route exact path="/">
-                    <AllGames/>
+                    <AllGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/allgames'>
-                    <AllGames/>
+                    <AllGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/topgames'>
-                    <TopGames/>
+                    <TopGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/livecasino'>
-                    <LiveCasinoGames/>
+                    <LiveCasinoGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/slots'>
-                    <SlotsGames/>
+                    <SlotsGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/roulette'>
-                    <RouletteGames/>
+                    <RouletteGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/tablegames'>
-                    <RouletteGames/>
+                    <TableGames searchValue={searchValue}/>
                 </Route>
                 <Route path='/cardgames'>
-                    <RouletteGames/>
+                    <CardGames searchValue={searchValue}/>
                 </Route>
             </Switch>
         </section>
