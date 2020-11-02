@@ -11,29 +11,32 @@ import cardGamesIcon from '../../assets/images/icons/categories/card_games.svg';
 import {Link} from "react-router-dom";
 
 const Categories = () => {
+    // Я извиняюсь, что здесь такой костыль, к сожалению догадаться я смог только до такого решения,
+    // не у кого спросить совета, буду рад, если подскажите Best Practices)
+
     if(window.innerWidth > 800) {
         return (
             <div className={s.wrapper}>
                 <Link className={s.link} to='/allgames'>
-                    <CategoriesItem icon={allGamesIcon} title='All games'/>
+                    <CategoriesItem activePath='/allgames' icon={allGamesIcon} title='All games'/>
                 </Link>
                 <Link className={s.link} to='/topgames'>
-                    <CategoriesItem icon={topGamesIcon} title='Top games'/>
+                    <CategoriesItem activePath='/topgames' icon={topGamesIcon} title='Top games'/>
                 </Link>
                 <Link className={s.link} to='/livecasino'>
-                    <CategoriesItem icon={liveCasinoIcon} title='Live casino'/>
+                    <CategoriesItem activePath='/livecasino' icon={liveCasinoIcon} title='Live casino'/>
                 </Link>
                 <Link className={s.link} to='/slots'>
-                    <CategoriesItem icon={slotsGamesIcon} title='Slots games'/>
+                    <CategoriesItem activePath='/slots' icon={slotsGamesIcon} title='Slots games'/>
                 </Link>
                 <Link className={s.link} to='/roulette'>
-                    <CategoriesItem icon={rouletteIcon} title='Roulette'/>
+                    <CategoriesItem activePath='/roulette' icon={rouletteIcon} title='Roulette'/>
                 </Link>
                 <Link className={s.link} to='/tablegames'>
-                    <CategoriesItem icon={tableGamesIcon} title='Table games'/>
+                    <CategoriesItem activePath='/tablegames' icon={tableGamesIcon} title='Table games'/>
                 </Link>
                 <Link className={s.link} to='/cardgames'>
-                    <CategoriesItem icon={cardGamesIcon} title='Card games'/>
+                    <CategoriesItem activePath='/cardgames' icon={cardGamesIcon} title='Card games'/>
                 </Link>
             </div>
         )

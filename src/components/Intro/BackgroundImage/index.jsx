@@ -5,7 +5,6 @@ import mobileBg from '../../../assets/images/bgClown-mobile.png';
 
 const BackgroundImage = () => {
     return (
-        // <img src={desktopBg} className={s.background}/>
         <picture>
             <source srcSet={mobileBg} media="(max-width: 800px)" className={s.background}/>
             <img src={desktopBg} className={s.background}/>
