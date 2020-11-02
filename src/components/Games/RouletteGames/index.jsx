@@ -18,7 +18,7 @@ const RouletteGames = () => {
 
     return (
         <>
-            {games.map(item => <GameItem data={item}/>)}
+            {games.map((item, index) => <GameItem key={index} data={item}/>)}
         </>
     )
 }
