@@ -1,0 +1,22 @@
+.container {
+  position: relative;
+  //width: 100%;
+  width: 1248px;
+  margin: 0 auto;
+  padding: 0 16px 0 16px;
+}
+
+
+@media (max-width: 1247px) {
+  .container {
+    width: 100%;
+    max-width: 1248px;
+  }
+}
+
+.search-providers-wrapper {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+}

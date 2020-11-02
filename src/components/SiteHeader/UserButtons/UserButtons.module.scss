@@ -1,0 +1,30 @@
+@import "src/assets/variables";
+
+.userButtons {
+  margin-left: auto;
+  margin-right: -16px;
+  display: flex;
+  align-items: center;
+
+  .link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 30px 22px;
+  }
+
+  .register {
+    background-color: $mainRedColor;
+    padding: 33px 29px;
+  }
+}
+
+@media (max-width: 800px) {
+  .userButtons {
+    display: none;
+  }
+
+}

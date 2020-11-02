@@ -1,0 +1,14 @@
+.siteHeader {
+  position: relative;
+  display: flex;
+  height: 72px;
+  width: 100%;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .siteHeader{
+    height: 41px;
+  }
+
+}

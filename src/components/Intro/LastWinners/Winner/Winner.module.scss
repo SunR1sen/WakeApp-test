@@ -1,0 +1,92 @@
+@import 'src/assets/variables';
+
+.wrapper {
+  display: inline-block;
+  width: 130px;
+
+  &:not(:last-child) {
+    margin-right: 10px;
+  }
+}
+
+
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  height: auto;
+  display: block;
+
+  &:before {
+    z-index: 10;
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: url("./crown.svg") top left no-repeat;
+    background-size: 20px 20px;
+  }
+
+  &:after {
+    z-index: 1;
+    position: absolute;
+    content: '';
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: linear-gradient(180deg, rgba(6, 14, 42, 0) 0%, rgba(6, 14, 42, 0.26) 33.78%, rgba(6, 14, 42, 0.88) 85%, #060E2A 100%);
+  }
+
+  .cover {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+
+  .money {
+    position: absolute;
+    z-index: 100;
+    color: $mainYellowColor;
+    font-weight: 700;
+    font-size: 14px;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+.nickname {
+  margin-top: 5px;
+  color: $textGrayColor;
+  font-size: 12px;
+  text-align: right;
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    width: 92px;
+
+    &:not(:last-child) {
+      margin-right: 6px;
+    }
+  }
+
+  .image-wrapper {
+    max-width: 140px;
+
+    &:before {
+      background-size: 15px 15px;
+    }
+
+    .money {
+      font-size: 12px;
+    }
+  }
+
+  .nickname {
+    font-size: 10px;
+    margin-top: 7px;
+  }
+  
+}

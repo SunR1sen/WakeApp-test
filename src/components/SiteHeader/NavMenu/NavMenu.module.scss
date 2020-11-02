@@ -1,0 +1,33 @@
+@import "src/assets/variables";
+
+.navMenu {
+  display: flex;
+
+  .link {
+    position: relative;
+    text-decoration: none;
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 0 14px;
+  }
+
+  .link:not(:last-child):after {
+    display: block;
+    position: absolute;
+    content: '';
+    width: 2px;
+    height: 10px;
+    background-color: $textGrayColor;
+    transform: skew(-20deg) translateY(-50%);
+    right: 0;
+    top: 50%;
+  }
+}
+
+@media (max-width: 800px) {
+  .navMenu {
+    display: none;
+  }
+}

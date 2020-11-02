@@ -1,0 +1,21 @@
+.wrapper {
+  background-color: inherit;
+  border: none;
+  outline: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+
+
+  .icon {
+  }
+
+  .title {
+    margin-top: 6px;
+    font-size: 7px;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+}

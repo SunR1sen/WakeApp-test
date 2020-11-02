@@ -1,0 +1,12 @@
+.content-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-end;
+}
+
+@media (max-width: 800px) {
+  .content-wrapper {
+    flex-wrap: wrap;
+  }
+}
