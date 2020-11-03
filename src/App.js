@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import s from './App.module.scss';
 import SiteHeader from "./components/SiteHeader";
 import {BrowserRouter as Router} from 'react-router-dom';
@@ -9,6 +9,9 @@ import Games from "./components/Games";
 import Search from "./components/Search";
 
 const App = () => {
+    const [searchValue, setSearchValue] = useState('');
+    console.log(searchValue)
+
     return (
         <div className={s.container}>
             <Router>
@@ -17,9 +20,9 @@ const App = () => {
                 <Categories/>
                 <div className={s["search-providers-wrapper"]}>
                     <Providers/>
-                    <Search/>
+                    <Search value={searchValue} setValue={setSearchValue}/>
                 </div>
-                <Games/>
+                <Games searchValue={searchValue}/>
             </Router>
         </div>
     );

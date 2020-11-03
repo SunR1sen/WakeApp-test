@@ -1,9 +1,12 @@
 import React from 'react';
 import s from './Search.module.scss';
 
-const Search = () => {
+const Search = ({value, setValue}) => {
+
+
+
     return (
-        <input className={s.search} placeholder='Find the game' />
+        <input value={value} onChange={(e) => setValue(e.target.value)} className={s.search} placeholder='Find the game' />
     )
 }
 
