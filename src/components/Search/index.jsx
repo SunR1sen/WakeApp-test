@@ -6,7 +6,7 @@ const Search = ({value, setValue}) => {
 
 
     return (
-        <input value={value} onChange={(e) => setValue(e.target.value)} className={s.search} placeholder='Find the game' />
+        <input value={value} onChange={(e) => setValue(e.target.value.toLowerCase())} className={s.search} placeholder='Find the game' />
     )
 }
 
