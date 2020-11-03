@@ -11,7 +11,7 @@ const GameItem = (props) => {
     return (
         <>
             {data && <img className={s.image}
-                          src={`https://aws-origin.image-tech-storage.com/gameRes/sq/150/${data.item_title}.jpg`}/>
+                          src={`https://aws-origin.image-tech-storage.com/gameRes/sq/250/${data.item_title}.jpg`}/>
             }
         </>
     )

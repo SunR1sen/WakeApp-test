@@ -1,14 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import s from './Games.module.scss';
-import AllGames from "./AllGames";
 import {Switch, Route} from "react-router-dom";
-import TopGames from "./TopGames";
-import LiveCasinoGames from "./LiveCasinoGames";
-import SlotsGames from "./SlotsGames";
-import RouletteGames from "./RouletteGames";
-import TableGames from "./TableGames";
-import CardGames from "./CardGames";
 import * as axios from "axios";
+import GamesBlock from "./GamesBlock";
 
 const Games = ({searchValue}) => {
     const [games, setGames] = useState([])
@@ -20,37 +14,51 @@ const Games = ({searchValue}) => {
             })
     }, [])
 
+    const searchFilter = (games) => {
+        return games.filter(item => item.application_name.toLowerCase().includes(searchValue))
+    }
 
-    return (
-        <section className={s.wrapper}>
-            <Switch>
-                <Route exact path="/">
-                    <AllGames games={games} searchValue={searchValue}/>
-                </Route>
-                <Route path='/allgames'>
-                    <AllGames games={games} searchValue={searchValue}/>
-                </Route>
-                <Route path='/topgames'>
-                    <TopGames games={games} searchValue={searchValue}/>
-                </Route>
-                {/*<Route path='/livecasino'>*/}
-                {/*    <LiveCasinoGames searchValue={searchValue}/>*/}
-                {/*</Route>*/}
-                {/*<Route path='/slots'>*/}
-                {/*    <SlotsGames searchValue={searchValue}/>*/}
-                {/*</Route>*/}
-                {/*<Route path='/roulette'>*/}
-                {/*    <RouletteGames searchValue={searchValue}/>*/}
-                {/*</Route>*/}
-                {/*<Route path='/tablegames'>*/}
-                {/*    <TableGames searchValue={searchValue}/>*/}
-                {/*</Route>*/}
-                {/*<Route path='/cardgames'>*/}
-                {/*    <CardGames searchValue={searchValue}/>*/}
-                {/*</Route>*/}
-            </Switch>
-        </section>
-    )
+    if (games.length === 0) {
+        return null
+    } else {
+        return (
+            <section className={s.wrapper}>
+                <Switch>
+                    <Route exact path="/">
+                        <GamesBlock games={games} searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/allgames'>
+                        <GamesBlock games={games} searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/topgames'>
+                        <GamesBlock games={games} condition='is_most_popular' category={true}
+                                    searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/livecasino'>
+                        <GamesBlock games={games} condition='game_family_group' category='Live Casino'
+                                    searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/slots'>
+                    <GamesBlock games={games} condition='game_family_group' category='Slot'
+                                searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/roulette'>
+                        <GamesBlock games={games} condition='game_family_group' category='Roulette'
+                                    searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/tablegames'>
+                        <GamesBlock games={games} condition='game_family_group' category='Slot'
+                                    searchFilter={searchFilter}/>
+                    </Route>
+                    <Route path='/cardgames'>
+                        <GamesBlock games={games} condition='game_family_group' category='Slot'
+                                    searchFilter={searchFilter}/>
+                    </Route>
+                </Switch>
+            </section>
+        )
+    }
+
 }
 
 export default Games

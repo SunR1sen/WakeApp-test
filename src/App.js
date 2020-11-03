@@ -10,7 +10,6 @@ import Search from "./components/Search";
 
 const App = () => {
     const [searchValue, setSearchValue] = useState('');
-    console.log(searchValue)
 
     return (
         <div className={s.container}>
