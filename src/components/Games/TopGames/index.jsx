@@ -2,26 +2,20 @@ import React, {useEffect, useState} from 'react';
 import * as axios from 'axios';
 import GameItem from "../GameItem";
 
-const TopGames = ({searchValue}) => {
-    const [games, setGames] = useState([])
+const TopGames = ({searchValue, games}) => {
 
-    useEffect(() => {
-        axios.get('https://57d10932-44d0-4d3a-98a9-6dda8c67bdd3.mock.pstmn.io/?liveCasinoOnly=true&limit=25')
-            .then(response => {
-                setGames(response.data.map(item => {
-                    if (item.is_most_popular) {
-                        return item;
-                    }
-                }));
-            })
-    }, [])
+    if (games.length === 0) {
+        return null;
+    } else {
+        return (
+            <>
+                {games.filter(item => item.is_most_popular).filter(item => item.application_name.toLowerCase().includes(searchValue)).map((item) =>
+                    <GameItem key={item.application_name} data={item}/>)}
+            </>
+        )
+    }
 
-    return (
-        <>
-            {games.filter(item => item.application_name.toLowerCase().includes(searchValue)).map((item, index) =>
-                <GameItem key={index} data={item}/>)}
-        </>
-    )
+
 }
 
 export default TopGames;
